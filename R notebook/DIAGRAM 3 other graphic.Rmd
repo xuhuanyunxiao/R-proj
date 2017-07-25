@@ -1,0 +1,37 @@
+---
+title: "DIAGRAM 2 basic graphic"
+author: "xh"
+date: "2017年7月21日"
+# output: html_document
+output: 
+  flexdashboard::flex_dashboard:
+    vertical_layout: scroll
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# catalogue {.sidebar}
++ 1 漏斗图
+    - R 自带
+    - ggplot2
++ 2 （矩形）树图
+    - R 自带
+    - ggplot2
++ 3 热力图
+    - R 自带
+    - ggplot2    
++ 3 关系图
+    - R 自带
+    - ggplot2
++ 5 词云
+    - R 自带
+    - ggplot2   
++ 6 桑基图
+    - R 自带
+    - ggplot2 
++ 7 日历图
+    - R 自带
+    - ggplot2     
+   

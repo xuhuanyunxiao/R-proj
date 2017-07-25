@@ -8,7 +8,7 @@ library(MASS)
 
 # 添加自定义函数
 # normalizePath(readClipboard(), "/", mustWork = FALSE)
-source(file="D:/XH/R_Project/My_Scripts/my_scripts.R", chdir = TRUE)
+source(file="D:/XH/R_Project/Questionnaire/file/My_Scripts/my_scripts.R", chdir = TRUE)
 
 
 # 获取与设置工作目录 ---------------------------------------------------------------

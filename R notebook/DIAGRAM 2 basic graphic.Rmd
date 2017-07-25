@@ -1,0 +1,213 @@
+---
+title: "DIAGRAM 2 basic graphic-1"
+author: "xh"
+date: "2017年7月21日"
+# output: html_document
+output: 
+  flexdashboard::flex_dashboard:
+    vertical_layout: scroll
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# catalogue {.sidebar}
++ 1 折线图
+    - R 自带
+    - ggplot2
++ 2 条形图（含堆积）
+    - R 自带
+    - ggplot2
++ 3 直方图
+    - R 自带
+    - ggplot2    
++ 4 饼图
+    - R 自带
+    - ggplot2
++ 5 散点图
+    - R 自带
+    - ggplot2   
++ 6 保存
+    - R 自带
+    - ggplot2     
+
+-------------------------------------------------------------------------
+# 1 line chart
+## Column 1
+### R
+
+
+## Column 2
+### ggplot2
+
+
+# 2 bar chart {#anchor}
+## Column 1
+### R
+```{r}
+# install.packages('vcd')
+library(vcd)
+counts <- table(Arthritis$Improved)
+```
+
+#### 1 简单条形图 {.css_class}
+```{r}
+barplot(counts, main = 'Simplt Bar Plot',
+        xlab = 'Improvement', ylab = 'Frequency')
+```
+
+#### 2 水平条形图
+```{r}
+# 水平条形图
+barplot(counts, main = 'Horizontal Bar Plot',
+        xlab = 'Frequency', ylab = 'Imporvement',
+        horiz = TRUE)
+```
+
+## Column 2
+### ggplot2
+```{r}
+require(ggplot2)
+data(diamonds)
+set.seed(42)
+small <- diamonds[sample(nrow(diamonds), 1000), ]
+```
+
+```{r}
+ggplot(small)+geom_bar(aes(x=clarity))
+```
+
+
+# 4 pie chart
+## Column 1
+### R
+```{r}
+par(mfrow = c(2,2))
+slices <- c(10,12,4,16)
+lbls <- c('US','UK','AU','GE')
+```
+
+```{r}
+pie(slices, labels = lbls,
+    main = 'Simple Pie Chart')
+```
+
+## Column 2
+### ggplot2
+```{r}
+ggplot(small)+geom_bar(aes(x=factor(1),    
+              fill=cut))+coord_polar(theta="y")
+```
+
+# 3 histogram chart
+## Column 1
+### R
+
+
+## Column 2
+### ggplot2
+
+
+
+# 4 Kernel density chart
+## Column 1
+### R
+
+
+## Column 2
+### ggplot2
+
+
+
+# 5 box chart
+## Column 1
+### R
+
+
+## Column 2
+### ggplot2
+
+
+
+# 6 dot chart
+## Column 1
+### R
+
+
+## Column 2
+### ggplot2
+
+
+# 7 save file
+## Column 1
+### R
+
+```{r}
+## Not run: ------------------------------------
+# pdf(file="myplot.pdf")
+# dev.off()
+
+# png(file="myplot.png", bg="transparent")
+# dev.off()
+
+# jpeg(file="myplot.jpeg")
+# dev.off()
+
+# 其它：postscrept('plot.eps')
+
+# 图片默认存放在getwd()，可通过setwd()改变
+
+# 当数据图很多时，记得用paste（），
+# for(i in genid){
+#   pdf(file=paste(i,'.pdf',sep=''))
+#   hist(get(i))
+#   dev.off()
+# }
+
+## ---------------------------------------------
+```
+
+
+## Column 2
+### ggplot2
+
+**ggsave(filename, plot = last_plot(), device = NULL, path = NULL,**
+    **scale = 1, width = NA, height = NA, units = c("in", "cm", "mm"),**
+    **dpi = 300, limitsize = TRUE, ...)**
+
+> + filename	
+>     - File name to create on disk.
+> + plot	
+>     - Plot to save, defaults to last plot displayed.
+> + device	
+>     - Device to use. Can be either be a device function (e.g. png), or one of "eps", "ps", "tex" (pictex), "pdf", "jpeg", "tiff", "png", "bmp", "svg" or "wmf" (windows only).
+> + path	
+>     - Path to save plot to (combined with filename).
+> + scale	
+>     - Multiplicative scaling factor.
+> + width, height, units	
+>     - Plot size in units ("in", "cm", or "mm"). If not supplied, uses the size of current graphics device.
+> + dpi	
+>     - Plot resolution. Applies only to raster output types.
+
+```{r}
+## Not run: ------------------------------------
+# ggplot(mtcars, aes(mpg, wt)) + geom_point()
+# 
+# ggsave("mtcars.pdf")
+# ggsave("mtcars.png")
+# 
+# ggsave("mtcars.pdf", width = 4, height = 4)
+# ggsave("mtcars.pdf", width = 20, height = 20, units = "cm")
+# 
+# unlink("mtcars.pdf")
+# unlink("mtcars.png")
+# 
+# # specify device when saving to a file with unknown extension
+# # (for example a server supplied temporary file)
+# file <- tempfile()
+# ggsave(file, device = "pdf")
+# unlink(file)
+## ---------------------------------------------
+```

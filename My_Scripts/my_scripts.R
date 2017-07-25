@@ -3,8 +3,8 @@
 
 # 获取文件所在路径及文件名 ----------------------------------------------------------------
 
-# file_folder <- getwd()
-file_folder <- "D:/XH/R_Project/My_Scripts"
+file_folder <- getwd()
+# file_folder <- "D:/XH/R_Project/My_Scripts"
 file_list <- as.list(dir(file_folder))
 
 

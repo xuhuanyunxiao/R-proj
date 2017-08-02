@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
     - ggplot2
 + 3 直方图
     - R 自带
-    - ggplot2    
+    - ggplot2
 + 4 饼图
     - R 自带
     - ggplot2
@@ -33,6 +33,7 @@ knitr::opts_chunk$set(echo = TRUE)
     - ggplot2     
 
 -------------------------------------------------------------------------
+
 # 1 line chart
 ## Column 1
 ### R
@@ -41,6 +42,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Column 2
 ### ggplot2
 
+
+-------------------------------------------------------------------------
 
 # 2 bar chart {#anchor}
 ## Column 1
